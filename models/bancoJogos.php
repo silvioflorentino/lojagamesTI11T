@@ -17,8 +17,9 @@ function listaTudoJogos($conexao){
 
 function listaTudoJogosCod($conexao,$codJogo){
     $query = "Select * from tbjogos where codJog={$codJogo}";
-    $resultados = mysqli_query($conexao,$codJogo);
-    return $resultados;
+    $resultados = mysqli_query($conexao,$query);
+    $resul= mysqli_fetch_array($resultados);
+    return $resul;
 }
 
 
