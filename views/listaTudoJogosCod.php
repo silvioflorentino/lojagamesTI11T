@@ -31,11 +31,10 @@ include_once("../models/bancoJogos.php");
     </thead>
     <tbody>
         <?php
-        $codJogo = isset($_GET['CodJog'])?$_GET['CodJog']:"";
+        $codJogo = isset($_GET['CodJog'])?$_GET['CodJog']:0;
      
-        $jogo = listaTudoJogosCod($conexao,$codJogo);
-        
-
+        if($codJogo > 0){
+            $jogo = listaTudoJogosCod($conexao,$codJogo);
         ?>
             <tr>
                 <th scope="row"><?=$jogo['codJog'] ?></th>
@@ -44,7 +43,7 @@ include_once("../models/bancoJogos.php");
                 <td><?=$jogo['precoJog'] ?></td>
             </tr>
         <?php
-
+    }
         ?>
     </tbody>
 </table>
