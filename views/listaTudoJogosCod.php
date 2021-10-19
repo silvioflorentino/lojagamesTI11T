@@ -1,15 +1,15 @@
 <?php
 include_once("header.php");
 include_once("../models/conexao.php");
-include_once("../models/bancoJogos.php");
+include_once("../models/bancoUsuario.php");
 
 ?>
 <div class="container m-5 p-5">
-    <form action="listaTudoJogosCod.php" method="GET">
+    <form action="listaTudoUsuarioCod.php" method="GET">
         <div class="row mb-3">
-            <label for="inputCodigo" class="col-sm-2 col-form-label">Digite o Código do Jogo: </label>
+            <label for="inputCodigo" class="col-sm-2 col-form-label">Digite o Código do Usuario: </label>
             <div class="col-sm-3">
-                <input type="number" required name="CodJog"class="form-control" id="inputCodigo">
+                <input type="number" required name="CodUsuario"class="form-control" id="inputCodigo">
             </div>
             <div class="col-sm-3">
                 <button type="submit" class="btn btn-primary">Buscar</button>
@@ -24,23 +24,22 @@ include_once("../models/bancoJogos.php");
     <thead>
         <tr>
             <th scope="col">Código</th>
-            <th scope="col">Jogo</th>
-            <th scope="col">Console</th>
-            <th scope="col">Preço</th>
+            <th scope="col">Email</th>
+            <th scope="col">Senha</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        $codJogo = isset($_GET['CodJog'])?$_GET['CodJog']:0;
+        $codUsuario = isset($_GET['CodUsuario'])?$_GET['CodUsuario']:0;
      
-        if($codJogo > 0){
-            $jogo = listaTudoJogosCod($conexao,$codJogo);
+        if($codUsuario > 0){
+            $Usuario = listaTudoUsuarioCod($conexao,$codUsuario);
         ?>
             <tr>
-                <th scope="row"><?=$jogo['codJog'] ?></th>
-                <td><?=$jogo['nomeJog'] ?></td>
-                <td><?=$jogo['consoleJog'] ?></td>
-                <td><?=$jogo['precoJog'] ?></td>
+                <th scope="row"><?=$Usuario['codUsuario'] ?></th>
+                <td><?=$Usuario['nomeUsuario'] ?></td>
+                <td><?=$Usuario['consoleUsuario'] ?></td>
+                <td><?=$Usuario['precoUsuario'] ?></td>
             </tr>
         <?php
     }
