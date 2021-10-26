@@ -6,7 +6,7 @@ include("../views/header.php");
 
 extract($_REQUEST,EXTR_OVERWRITE);
 
-if(alterarUsuario($conexao,$codigo,$email,$senha)){
+if(alterarUsuario($conexao,$codigo,$email,$senha,$pin)){
     echo("Usuario Alterado com sucesso");
 }else{
     echo("Usuario não Alterado.");

@@ -1,15 +1,15 @@
 <?php
 include_once("header.php");
 include_once("../models/conexao.php");
-include_once("../models/bancoUsuario.php");
+include_once("../models/bancoJogos.php");
 
 ?>
 <div class="container m-5 p-5">
-    <form action="listaTudoUsuarioCod.php" method="GET">
+    <form action="../views/listaTudoJogosCod.php" method="GET">
         <div class="row mb-3">
-            <label for="inputCodigo" class="col-sm-2 col-form-label">Digite o Código do Usuario: </label>
+            <label for="inputCodigo" class="col-sm-2 col-form-label">Digite o Código do Jogo: </label>
             <div class="col-sm-3">
-                <input type="number" required name="CodUsuario"class="form-control" id="inputCodigo">
+                <input type="number" required name="CodJog"class="form-control" id="inputCodigo">
             </div>
             <div class="col-sm-3">
                 <button type="submit" class="btn btn-primary">Buscar</button>
@@ -24,25 +24,31 @@ include_once("../models/bancoUsuario.php");
     <thead>
         <tr>
             <th scope="col">Código</th>
-            <th scope="col">Email</th>
-            <th scope="col">Senha</th>
+            <th scope="col">Jogo</th>
+            <th scope="col">Console</th>
+            <th scope="col">Preço</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        $codUsuario = isset($_GET['CodUsuario'])?$_GET['CodUsuario']:0;
+        $codJogo = isset($_GET['CodJog'])?$_GET['CodJog']:0;
      
-        if($codUsuario > 0){
-            $Usuario = listaTudoUsuarioCod($conexao,$codUsuario);
+        if($codJogo > 0){
+            $jogo = listaTudoJogosCod($conexao,$codJogo);
+
+            if($jogo){
+
+           
         ?>
             <tr>
-                <th scope="row"><?=$Usuario['codUsuario'] ?></th>
-                <td><?=$Usuario['nomeUsuario'] ?></td>
-                <td><?=$Usuario['consoleUsuario'] ?></td>
-                <td><?=$Usuario['precoUsuario'] ?></td>
+                <th scope="row"><?=$jogo['codJog'] ?></th>
+                <td><?=$jogo['nomeJog'] ?></td>
+                <td><?=$jogo['consoleJog'] ?></td>
+                <td><?=$jogo['precoJog'] ?></td>
             </tr>
         <?php
     }
+}
         ?>
     </tbody>
 </table>

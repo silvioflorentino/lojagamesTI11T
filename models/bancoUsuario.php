@@ -27,11 +27,15 @@ function listaTudoUsuarioCod($conexao,$codUsuario){
     return $resul;
 }
 
-function alterarUsuario($conexao,$codUsuario, $emailUsuario,$senhaUsuario){
-
+function alterarUsuario($conexao,$codUsuario, $emailUsuario,$senhaUsuario,$pinUsuario){
+    $option = ['cost' => 8];
+    $senhacryto =  password_hash($senhaUsuario, PASSWORD_BCRYPT,$option);
+    
     $query = "update tbusuarios set 
     emailUsu = '{$emailUsuario}', 
-    senhaUsu = '{$senhaUsuario}' where codUsu = '{$codUsuario}' ";
+    senhaUsu = '{$senhacryto}',
+    pinUsu = '{$pinUsuario}'
+    where codUsu = '{$codUsuario}' ";
     $resultados = mysqli_query($conexao, $query);
     return $resultados;
 }

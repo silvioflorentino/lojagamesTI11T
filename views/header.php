@@ -25,10 +25,10 @@
             Usuários
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="cadastroUsuario.php">Cadastro</a></li>
-            <li><a class="dropdown-item" href="listaTudoUsuario.php">Visualizar</a></li>
+            <li><a class="dropdown-item" href="../views/cadastroUsuario.php">Cadastro</a></li>
+            <li><a class="dropdown-item" href="../views/listaTudoUsuario.php">Visualizar</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="listaTudoUsuarioCod.php">Busca por Código</a></li>
+            <li><a class="dropdown-item" href="../views/listaTudoUsuarioCod.php">Busca por Código</a></li>
           </ul>
         </li>
 
@@ -37,10 +37,10 @@
             Jogos
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="cadastroJogos.php">Cadastro</a></li>
+            <li><a class="dropdown-item" href="../views/cadastroJogos.php">Cadastro</a></li>
             <li><a class="dropdown-item" href="../views/listaTudoJogos.php">Visualizar Tudo</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="listaTudoJogosCod.php">Busca por Código</a></li>
+            <li><a class="dropdown-item" href="../views/listaTudoJogosCod.php">Busca por Código</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -48,7 +48,7 @@
             Cliente
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Cadastro</a></li>
+            <li><a class="dropdown-item" href="../views/cadastroCliente.php">Cadastro</a></li>
             <li><a class="dropdown-item" href="#">Visualizar</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Busca por Código</a></li>
