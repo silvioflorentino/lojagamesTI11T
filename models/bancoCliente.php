@@ -42,6 +42,13 @@ function deletarJogos($conexao,$codJog){
     return $resultados;
 }
 
+function listaTudoClienteNome($conexao, $nomeCliente){
+    $query = "select * from tbclientes where nomeCli like '%{$nomeCliente}%'";
+    $resultados = mysqli_query($conexao,$query);
+  
+    return $resultados; 
+}
+
 
 
 
