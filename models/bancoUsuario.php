@@ -46,7 +46,33 @@ function deletarUsuario($conexao,$codUsuario){
     return $resultados;
 }
 
+function buscarAcesso($conexao,$email,$senha){
+    $query = "select * from tbusuarios where emailUsu='{$email}'";
+    $resultados = mysqli_query($conexao,$query);
 
+    if(mysqli_num_rows($resultados) > 0 ){
+        $linha = mysqli_fetch_assoc($resultados);
+
+        if(password_verify($senha,$linha["senhaUsu"])){
+            $_SESSION["emailUsuario"] = $linha["emailUsu"];
+            $_SESSION["codigoUsuario"] = $linha["codUsu"];
+
+            return $linha["emailUsu"];
+        }else{
+            return "Senha não confere";
+        }
+    }else{
+     return "Email não cadastrado";       
+    }
+
+}
+
+function sairSistema(){
+    session_start();
+    session_destroy();
+    $_SESSION["msg"] ="<div class='alert alert-danger' role='alert'>Sua Sessão Expirou.</div>";
+    header("Location:../views/logar.php");
+}
 
 
 

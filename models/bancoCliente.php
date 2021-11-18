@@ -15,29 +15,37 @@ function listaTudoClientes($conexao){
     return $resultados;
 }
 
-function listaTudoClienteCod($conexao,$codJogo){
-    $query = "Select * from tbjogos where codJog={$codJogo}";
+function listaTudoClienteCod($conexao,$codCliente){
+    $query = "Select * from tbclientes where codCli={$codCliente}";
     $resultados = mysqli_query($conexao,$query);
     $resul= mysqli_fetch_array($resultados);
     return $resul;
 }
 
-function alterarJogos($conexao,$codJog, $nomeJog,$tamanhoJog,$precoJog,$requisitosJog,$consoleJog,$classificacaoJog,$avaliacaoJog){
-var_dump($classificacaoJog);
-    $query = "update tbjogos set 
-    nomeJog = '{$nomeJog}', 
-    tamanhoJog = '{$tamanhoJog}',
-    precoJog = '{$precoJog}', 
-    requisitosJog = '{$requisitosJog}', 
-    consoleJog = '{$consoleJog}',
-    classificacaoJog = '{$classificacaoJog}', 
-    avaliacaoJog = '{$avaliacaoJog}' where codJog = '{$codJog}' ";
+function listaClienteUsuario($conexao,$codUsuario){
+    $query = "Select * from tbusuarios where codUsu={$codUsuario}";
+    $resultados = mysqli_query($conexao,$query);
+    $resul= mysqli_fetch_array($resultados);
+    return $resul;
+}
+
+function alterarCliente($conexao,$codigoUsuFk,$codCli,$nomeCliente,$cpfCliente,$foneCliente,$dataNascCliente){
+
+
+    
+$query = "update tbclientes set 
+codUsuFK = '{$codUsuFK}',
+nomeCli = '{$nomeCli}', 
+cpfCli = '{$cpfCli}', 
+foneCli = '{$foneCli}',
+datanasCli = '{$datanasCli}' 
+where codCli = '{$codCli}'";
     $resultados = mysqli_query($conexao, $query);
     return $resultados;
 }
 
-function deletarJogos($conexao,$codJog){
-    $query = "delete from tbjogos where codJog = $codJog";
+function deletarCliente($conexao,$codCli){
+    $query = "delete from tbjogos where codCli = $codCli";
     $resultados = mysqli_query($conexao,$query);
     return $resultados;
 }

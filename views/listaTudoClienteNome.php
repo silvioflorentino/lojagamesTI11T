@@ -59,7 +59,7 @@ include_once("../models/bancoCliente.php");
                     </td>
                     <td>
                         <form action="../views/formAlterarCliente.php" method="Post">
-                            <input type="hidden" name="codClientealterar" value="<?=$Clientes['codCli']?>">
+                            <input type="hidden" name="codClienteAlterar" value="<?=$Clientes['codCli']?>">
                             <button type="submit" class="btn-small btn-danger"> Alterar</button>
                         </form>
                     </td>
